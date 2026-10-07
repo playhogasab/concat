@@ -33,8 +33,9 @@ use std::sync::atomic::AtomicBool;
 use crate::dirs::AppDirs;
 use crate::models;
 
-/// The repository the releases are read from.
-pub const REPO: &str = "jub0t/Concat";
+/// The repository the releases are read from. PK CUT reads its own
+/// releases, never upstream's.
+pub const REPO: &str = "playhogasab/pk-cut";
 
 /// The first release with a Version page: the earliest one a person can
 /// come back from, so the earliest one offered.
@@ -42,7 +43,7 @@ pub const FIRST_SWITCHABLE: Version = Version::new(0, 2, 5);
 
 /// GitHub's list of the repository's releases, newest first. A hundred
 /// covers years of releases at this pace.
-const RELEASES_URL: &str = "https://api.github.com/repos/jub0t/Concat/releases?per_page=100";
+const RELEASES_URL: &str = "https://api.github.com/repos/playhogasab/pk-cut/releases?per_page=100";
 
 /// What a download that was stopped says.
 pub const CANCELLED: &str = "the download was cancelled";
