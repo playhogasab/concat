@@ -91,13 +91,13 @@ impl Default for StartPane {
 /// the folder the file manager shows for the app.
 fn default_location() -> String {
     if cfg!(target_os = "android") {
-        return home_folder("Concat");
+        return home_folder("PK CUT");
     }
     #[cfg(not(any(target_os = "android", target_os = "ios")))]
     if let Some(desktop) = dirs::desktop_dir() {
-        return desktop.join("Concat").to_string_lossy().into_owned();
+        return desktop.join("PK CUT").to_string_lossy().into_owned();
     }
-    home_folder("Desktop/Concat")
+    home_folder("Desktop/PK CUT")
 }
 
 impl StartPane {

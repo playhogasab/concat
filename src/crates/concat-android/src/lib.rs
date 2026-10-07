@@ -114,9 +114,9 @@ mod picker {
     use jni::{Env, JavaVM, jni_sig, jni_str, sys};
     use slint::android::AndroidApp;
 
-    /// The classes build.rs compiled: app.concat.editor.ConcatFiles.
+    /// The classes build.rs compiled: com.pkcut.app.PkcutFiles.
     const DEX: &[u8] = include_bytes!(concat!(env!("OUT_DIR"), "/classes.dex"));
-    const CLASS_NAME: &str = "app.concat.editor.ConcatFiles";
+    const CLASS_NAME: &str = "com.pkcut.app.PkcutFiles";
 
     type Picked = Box<dyn FnOnce(Vec<PathBuf>) + Send>;
 
@@ -220,7 +220,7 @@ mod picker {
         env.new_global_ref(class)
     }
 
-    /// `ConcatFiles.filesPicked`, on whichever thread the Java copied on.
+    /// `PkcutFiles.filesPicked`, on whichever thread the Java copied on.
     unsafe extern "system" fn files_picked(
         _env: *mut sys::JNIEnv,
         _class: sys::jclass,
@@ -258,7 +258,7 @@ fn android_main(app: slint::android::AndroidApp) {
     // Directories first: the log file is written into one of them.
     activity::name_directories(&app);
     activity::open_log();
-    log::info!("Concat {} starting", env!("CARGO_PKG_VERSION"));
+    log::info!("PK CUT {} starting", env!("CARGO_PKG_VERSION"));
     if let Err(error) = slint::android::init(app.clone()) {
         log::error!("could not start the Android backend: {error}");
         return;
